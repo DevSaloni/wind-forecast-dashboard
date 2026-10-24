@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: windwise-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - ELEXON_API_BASE_URL=https://data.elexon.co.uk/bmrs/api/v1
+      - DEFAULT_CUTOFF_HOUR=11
+      - DEFAULT_CUTOFF_MINUTE=0
+      - REQUEST_TIMEOUT_SECONDS=20.0
+      - CACHE_TTL_SECONDS=3600
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+    restart: unless-stopped
+    networks:
+      - windwise-network
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - VITE_API_BASE_URL=
+    container_name: windwise-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - VITE_API_BASE_URL=
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - windwise-network
+
+networks:
+  windwise-network:
+    driver: bridge

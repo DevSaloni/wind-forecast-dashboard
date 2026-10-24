@@ -1,0 +1,6 @@
+{
+  "name": "WindWise — Renewable Forecast Intelligence",
+  "description": "Wind Forecast Accuracy & Day-Ahead Procurement Support for UK Electricity Wholesale Trading.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,17 @@
+[
+  "backend/tests/test_accuracy.py::test_empty_dataset_handling",
+  "backend/tests/test_accuracy.py::test_lead_time_hours_calculation",
+  "backend/tests/test_accuracy.py::test_missing_actual_records",
+  "backend/tests/test_accuracy.py::test_missing_forecast_records",
+  "backend/tests/test_accuracy.py::test_standard_accuracy_metrics",
+  "backend/tests/test_accuracy.py::test_zero_actual_handling_never_divides_by_zero",
+  "backend/tests/test_api.py::test_date_range_ordering_validation",
+  "backend/tests/test_api.py::test_health_endpoint",
+  "backend/tests/test_api.py::test_invalid_date_validation_outside_january_2026",
+  "backend/tests/test_api.py::test_methodology_endpoint",
+  "backend/tests/test_api.py::test_root_endpoint",
+  "backend/tests/test_forecast_selection.py::test_cutoff_timestamp_computation",
+  "backend/tests/test_forecast_selection.py::test_forecast_selection_excludes_post_cutoff_revisions",
+  "backend/tests/test_forecast_selection.py::test_forecast_selection_with_earlier_cutoff",
+  "backend/tests/test_forecast_selection.py::test_latest_available_forecast_selection"
+]
